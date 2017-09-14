@@ -1,0 +1,133 @@
+                <HTML DOCTYPE!>
+                    <Head>
+                        <title>Valider un formaulaire avec JQuery</title>
+                    </Head>
+                    <body>
+                <form action="Login.php" method="post" id="account-creation" name="account-creation" class="client-form smart-form">
+                <div>
+                        <h2>Valider un formaulaire avec JQuery</h2>
+                        <div>
+                            <!-- Nom Complet -->
+                            <div>
+                                <div>
+                                    <br />
+                                    <label> Nom Complet </label>
+                                </div>
+                                <div>
+                                    <div>
+                                        <label>
+                                            <input type="text" id="Name" name="Name" class="form-control" maxlength="40" size="40" placeholder="Nom Complet .. Ex. Billy Tukija Richard ">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><br/>
+
+                            <!-- Email -->
+                            <div>
+                                <div>
+                                    <label>E-mail </label>
+                                </div>
+                                <div>
+                                    <div>
+                                        <label>
+                                            <input type="email" id="email" name="email" class="form-control" maxlength="40" size="40" placeholder="E-mail .. Ex. billytukija@gmail.com">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><br/>
+
+                            <!-- Mot de passe -->
+                            <div>
+                                <div>
+                                    <label>Mot de Passe</label>
+                                </div>
+                                <div>
+                                        <label>
+                                            <input type="password" id="password" name="password" maxlength="8" size="40" name="password" placeholder="Mot de passe  .. Ex. motpass@123" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confirm a password -->
+                        
+                        <br/>
+                         <div>
+                                <div>
+                                    <br />
+                                    <label>Confirmez votre Mot de Passe</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>
+                                            <input type="password" id="confirmPassword" name="confirmPassword" maxlength="8" size="40"  placeholder="Confirmes le Mot de passe .. Ex. motpass@123" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><br/>
+
+                        <!-- Creation des button -->
+                        <div>
+                                <input id="" type="submit" value="Créer (Gratuit)" class="btn btn-info" />
+                            </div>
+                    </div>
+                </div>
+            </form>
+            <body>
+        </html>
+
+         <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script src="~/Scripts/jquery.validate.js"></script> 
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.77/theme-default.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.77/theme-default.css">
+
+
+<script type="text/javascript">
+    $("#account-creation").validate({
+      /* Ici, on definit le règles pour chaque champ de texte*/
+        rules:
+        {
+            /* C'est le nom de votre input Nome (ex: <input type ="text" id ="Name" name = "Name" />) */
+            Name:
+            {
+                /* Pour dire que le nom est obligatoire */
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true
+            },
+            confirmPassword:
+            {
+                required: true,
+                equalTo: "#password"
+            }
+        },
+        /* Ici, on definit les messages pour chaque champ de texte*/
+        messages:
+        {
+            Name:
+            {
+                required: "Le nom est un champ obligatoire"
+            },
+            email:
+            {
+                required: "L'adresse E-mail est un champs obligatoire",
+                email: "Cette Adresse E-mail est invalide"
+            },
+            password: {
+                required: "Le de mot de passe est obligatoire"
+            },
+            confirmPassword:
+            {
+                required: "La confirmation du mot de passe est obligatoire",
+                equalTo : "Les deux mots de passe doivent être egaux" 
+            }
+        }
+    });
+                </script>
